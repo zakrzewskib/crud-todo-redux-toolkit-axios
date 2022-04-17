@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getTasksAsync } from '../../store/tasks-slice';
+import AddTask from './AddTask';
 
 import Task from './Task';
 
@@ -17,7 +18,10 @@ const TasksList = () => {
       <header className='mb-8 mt-5'>
         <h1 className='text-2xl font-bold'>Tasks</h1>
       </header>
-      <article className=''>
+      <article>
+        <AddTask />
+      </article>
+      <article>
         {tasks.map((task) => (
           <Task key={task.id} task={task} />
         ))}
