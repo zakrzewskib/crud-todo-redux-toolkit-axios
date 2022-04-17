@@ -6,7 +6,7 @@ const NavbarItem = (props) => {
     <li>
       <Link
         to={props.link}
-        class='flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700'
+        class='flex items-center rounded-lg p-2 text-base font-normal text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700'
       >
         {props.svg}
         <span class='ml-3'>{props.title}</span>
@@ -57,7 +57,7 @@ const Navbar = () => {
 
   return (
     <nav class='w-64' aria-label='Sidebar'>
-      <div class='overflow-y-auto py-4 px-3 h-screen bg-gray-50 dark:bg-gray-800'>
+      <div class='h-screen overflow-y-auto bg-gray-50 py-4 px-3 dark:bg-gray-800'>
         <ul class='space-y-2'>
           {links.map((link) => (
             <NavbarItem title={link.title} link={link.link} svg={link.svg} />
