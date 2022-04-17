@@ -2,7 +2,10 @@ import React from 'react';
 import Task from './Task';
 
 const TasksList = () => {
-  const tasks = [{ content: 'Practice React' }, { content: 'Learn Redux Toolkit' }];
+  const tasks = [
+    { id: 1, content: 'Practice React' },
+    { id: 2, content: 'Learn Redux Toolkit' },
+  ];
 
   return (
     <div>
@@ -11,7 +14,7 @@ const TasksList = () => {
       </header>
       <article className=''>
         {tasks.map((task) => (
-          <Task content={task.content} />
+          <Task key={task.id} content={task.content} />
         ))}
       </article>
     </div>

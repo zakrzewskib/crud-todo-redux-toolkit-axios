@@ -10,10 +10,6 @@ import NotFoundPage from './pages/NotFoundPage';
 import AboutPage from './pages/AboutPage';
 
 const App = () => {
-  useEffect(() => {
-    document.body.classList.add('dark');
-  }, []);
-
   return (
     <Layout>
       <Routes>
