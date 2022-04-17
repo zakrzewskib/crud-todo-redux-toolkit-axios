@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { v4 as uuid } from 'uuid';
 
 import axios from 'axios';
 
@@ -11,7 +12,7 @@ const transformDataFromFirebase = (data) => {
   const tasks = [];
   for (const entry of Object.entries(data)) {
     tasks.push({
-      id: entry[0],
+      id: entry[1].id,
       content: entry[1].content,
     });
   }
@@ -30,6 +31,9 @@ const tasksSlice = createSlice({
     deleteTask: (state, action) => {
       state.tasks = state.tasks.filter((task) => task.id !== action.payload.id);
     },
+    addTask: (state, action) => {
+      state.tasks.push(action.payload.task);
+    },
   },
 });
 
@@ -47,6 +51,16 @@ export const deleteTaskAsync = (data) => async (dispatch) => {
   try {
     await axios.delete(`${URL}/tasks/${data}.json`);
     dispatch(tasksActions.deleteTask({ id: data }));
+  } catch (err) {
+    throw new Error(err);
+  }
+};
+
+export const addTaskAsync = (data) => async (dispatch) => {
+  try {
+    const task = { content: data.content, id: uuid() };
+    await axios.post(`${URL}/tasks.json`, task);
+    dispatch(tasksActions.addTask({ task }));
   } catch (err) {
     throw new Error(err);
   }
