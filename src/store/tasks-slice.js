@@ -14,6 +14,7 @@ const transformDataFromFirebase = (data) => {
     tasks.push({
       id: entry[1].id,
       content: entry[1].content,
+      firebaseId: entry[0],
     });
   }
   return tasks;
@@ -49,8 +50,9 @@ export const getTasksAsync = () => async (dispatch) => {
 
 export const deleteTaskAsync = (data) => async (dispatch) => {
   try {
-    await axios.delete(`${URL}/tasks/${data}.json`);
-    dispatch(tasksActions.deleteTask({ id: data }));
+    const id = data.firebaseId;
+    await axios.delete(`${URL}/tasks/${id}.json`);
+    dispatch(tasksActions.deleteTask({ id: data.id }));
   } catch (err) {
     throw new Error(err);
   }

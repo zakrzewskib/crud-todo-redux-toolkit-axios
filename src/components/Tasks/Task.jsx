@@ -8,7 +8,7 @@ const Task = (props) => {
   const dispatch = useDispatch();
 
   const deleteTask = () => {
-    dispatch(deleteTaskAsync(props.task.id));
+    dispatch(deleteTaskAsync(props.task));
   };
 
   return (
