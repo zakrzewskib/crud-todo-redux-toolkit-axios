@@ -58,6 +58,10 @@ const Navbar = () => {
   return (
     <nav class='w-64' aria-label='Sidebar'>
       <div class='h-screen overflow-y-auto bg-gray-50 py-4 px-3 dark:bg-gray-800'>
+        <div class='mb-5 flex items-center pl-2.5'>
+          <img src={require('../../assets/img/icons8-todo-list-96.png')} class='mr-3 h-6 sm:h-7' alt='Todo Logo' />
+          <span class='self-center whitespace-nowrap text-xl font-semibold dark:text-white'>Todo</span>
+        </div>
         <ul class='space-y-2'>
           {links.map((link) => (
             <NavbarItem title={link.title} link={link.link} svg={link.svg} />
