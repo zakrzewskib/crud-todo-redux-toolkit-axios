@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import axios from 'axios';
+import { getTasksAsync } from '../../store/tasks-slice';
+
 import Task from './Task';
 
 const TasksList = () => {
-  const tasks = [
-    { id: 1, content: 'Practice React' },
-    { id: 2, content: 'Learn Redux Toolkit' },
-  ];
+  const dispatch = useDispatch();
+  const tasks = useSelector((state) => state.tasks.tasks);
+
+  useEffect(() => {
+    dispatch(getTasksAsync());
+  }, [dispatch]);
 
   return (
     <div>
