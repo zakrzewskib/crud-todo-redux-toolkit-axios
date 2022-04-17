@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { Route, Routes, Navigate } from 'react-router-dom';
 
@@ -9,6 +9,10 @@ import TaskDetailsPage from './pages/TaskDetailsPage';
 import NotFoundPage from './pages/NotFoundPage';
 
 const App = () => {
+  useEffect(() => {
+    document.body.classList.add('dark');
+  }, []);
+
   return (
     <Layout>
       <Routes>
