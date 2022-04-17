@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import axios from 'axios';
 import { getTasksAsync } from '../../store/tasks-slice';
 
 import Task from './Task';
@@ -20,7 +19,7 @@ const TasksList = () => {
       </header>
       <article className=''>
         {tasks.map((task) => (
-          <Task key={task.id} content={task.content} />
+          <Task key={task.id} task={task} />
         ))}
       </article>
     </div>
