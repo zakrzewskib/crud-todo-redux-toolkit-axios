@@ -7,6 +7,7 @@ import Layout from './components/Layout/Layout';
 import TasksPage from './pages/TasksPage';
 import TaskDetailsPage from './pages/TaskDetailsPage';
 import NotFoundPage from './pages/NotFoundPage';
+import AboutPage from './pages/AboutPage';
 
 const App = () => {
   useEffect(() => {
@@ -19,6 +20,7 @@ const App = () => {
         <Route path='/' element={<Navigate replace to='/tasks' />} />
         <Route path='/tasks' element={<TasksPage />} />
         <Route path='/tasks/:taskId' element={<TaskDetailsPage />} />
+        <Route path='/about' element={<AboutPage />} />
         <Route path='*' element={<NotFoundPage />} />
       </Routes>
     </Layout>
