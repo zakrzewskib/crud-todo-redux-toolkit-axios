@@ -15,11 +15,11 @@ const SwitchThemeButton = () => {
 
   return (
     <div
-      className='flex cursor-pointer items-center rounded-lg p-2 text-base font-normal text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700'
+      className='absolute top-0 right-0 flex cursor-pointer items-center rounded-lg p-2 text-base font-normal text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700'
       onClick={changeTheme}
     >
       {theme === 'dark' ? sunSvg : moonSvg}
-      <span className='ml-3'>Toggle Theme</span>
+      {/* <span className='ml-3'>Toggle Theme</span> */}
     </div>
   );
 };
