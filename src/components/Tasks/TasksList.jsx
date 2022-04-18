@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { useNavigate, useLocation } from 'react-router-dom';
 
@@ -10,6 +10,7 @@ import SortButton from '../UI/SortButton';
 import AddTask from './AddTask';
 
 import Task from './Task';
+import { loadingSpinner } from '../../assets/svg/Svgs';
 
 const TasksList = () => {
   const dispatch = useDispatch();
@@ -33,8 +34,10 @@ const TasksList = () => {
     dispatch(tasksActions.sortTasks({ isSortingAscending }));
   };
 
+  const [status, setStatus] = useState('loading');
+
   useEffect(() => {
-    dispatch(getTasksAsync());
+    dispatch(getTasksAsync()).then(setStatus('loaded')).catch(setStatus('error'));
   }, [dispatch]);
 
   return (
@@ -47,7 +50,8 @@ const TasksList = () => {
         <SortButton isSortingAscending={isSortingAscending} onClick={handleSortTasks} />
       </article>
 
-      <article>
+      <article className='text-center'>
+        {status === 'loading' && <div className='flex justify-center'>{loadingSpinner}</div>}
         {tasks.map((task) => (
           <Task key={task.id} task={task} />
         ))}
