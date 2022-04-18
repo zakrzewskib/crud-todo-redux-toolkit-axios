@@ -27,7 +27,7 @@ const aboutSvg = (
 const sunSvg = (
   <svg
     xmlns='http://www.w3.org/2000/svg'
-    className='h-6 w-6'
+    className='btn-svg-on-light-bg box-content h-6 w-6 rounded-lg p-1'
     fill='none'
     viewBox='0 0 24 24'
     stroke='currentColor'
@@ -44,7 +44,7 @@ const sunSvg = (
 const moonSvg = (
   <svg
     xmlns='http://www.w3.org/2000/svg'
-    className='h-6 w-6'
+    className='btn-svg-on-light-bg box-content h-6 w-6 rounded-lg p-1'
     fill='none'
     viewBox='0 0 24 24'
     stroke='currentColor'
@@ -61,7 +61,7 @@ const moonSvg = (
 const trashSvg = (
   <svg
     xmlns='http://www.w3.org/2000/svg'
-    className='box-content h-5 w-5 cursor-pointer rounded-lg p-1 hover:bg-gray-100 dark:hover:bg-gray-700'
+    className='btn-svg-on-dark-bg box-content h-5 w-5 cursor-pointer rounded-lg p-1'
     fill='none'
     viewBox='0 0 24 24'
     stroke='currentColor'
@@ -78,7 +78,7 @@ const trashSvg = (
 const editSvg = (
   <svg
     xmlns='http://www.w3.org/2000/svg'
-    className='box-content h-5 w-5 cursor-pointer rounded-lg p-1 hover:bg-gray-100 dark:hover:bg-gray-700'
+    className='btn-svg-on-dark-bg box-content h-5 w-5 cursor-pointer rounded-lg p-1'
     fill='none'
     viewBox='0 0 24 24'
     stroke='currentColor'
@@ -95,7 +95,7 @@ const editSvg = (
 const addSvg = (
   <svg
     xmlns='http://www.w3.org/2000/svg'
-    className='h-6 w-6'
+    className='btn-svg-on-dark-bg box-content h-6 w-6 rounded-lg p-2'
     fill='none'
     viewBox='0 0 24 24'
     stroke='currentColor'
@@ -112,7 +112,7 @@ const addSvg = (
 const sortAscendingSvg = (
   <svg
     xmlns='http://www.w3.org/2000/svg'
-    className='h-6 w-6'
+    className='btn-svg-on-dark-bg box-content h-6 w-6 rounded-lg p-2'
     fill='none'
     viewBox='0 0 24 24'
     stroke='currentColor'
@@ -125,7 +125,7 @@ const sortAscendingSvg = (
 const sortDescendingSvg = (
   <svg
     xmlns='http://www.w3.org/2000/svg'
-    className='h-6 w-6'
+    className='btn-svg-on-dark-bg box-content h-6 w-6 rounded-lg p-2'
     fill='none'
     viewBox='0 0 24 24'
     stroke='currentColor'

@@ -36,7 +36,7 @@ const AddTask = () => {
         required
         autoFocus
       />
-      <button className='p-3'>{addSvg}</button>
+      <button className='ml-1'>{addSvg}</button>
     </form>
   );
 };

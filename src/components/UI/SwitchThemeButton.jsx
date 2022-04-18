@@ -14,13 +14,12 @@ const SwitchThemeButton = () => {
   };
 
   return (
-    <div
-      className='absolute top-0 right-0 flex cursor-pointer items-center rounded-lg p-2 text-base font-normal text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700'
+    <button
+      className='0 absolute top-0 right-0 text-base font-normal text-gray-900 dark:text-white '
       onClick={changeTheme}
     >
       {theme === 'dark' ? sunSvg : moonSvg}
-      {/* <span className='ml-3'>Toggle Theme</span> */}
-    </div>
+    </button>
   );
 };
 

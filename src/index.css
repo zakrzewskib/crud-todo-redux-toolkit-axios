@@ -1,7 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-body>#root>div {
-    height: 100%;
-    min-height: 100vh;
+body > #root > div {
+  height: 100%;
+  min-height: 100vh;
+}
+
+@layer components {
+  .btn-svg-on-dark-bg {
+    @apply hover:bg-gray-100 dark:hover:bg-gray-700;
+  }
+  .btn-svg-on-light-bg {
+    @apply hover:bg-gray-50 dark:hover:bg-gray-600;
+  }
 }

@@ -34,7 +34,7 @@ const Navbar = () => {
 
   return (
     <nav className='w-64' aria-label='Sidebar'>
-      <div className='h-full overflow-y-auto bg-gray-100 py-4 px-3 dark:bg-gray-800'>
+      <div className='h-full overflow-y-auto bg-gray-50 py-4 px-3 dark:bg-gray-800'>
         <div className='mb-5 flex items-center pl-2.5'>
           <img src={require('../../assets/img/icons8-todo-list-96.png')} className='mr-3 h-6 sm:h-7' alt='Todo Logo' />
           <span className='self-center whitespace-nowrap text-xl font-semibold dark:text-white'>Todo</span>

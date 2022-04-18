@@ -6,7 +6,7 @@ const Layout = (props) => {
   return (
     <div className='flex dark:bg-gray-700'>
       <Navbar />
-      <main className='bg-gray-40 container mx-auto text-center text-gray-900  dark:text-white'>{props.children}</main>
+      <main className='container mx-auto text-center text-gray-900 dark:text-white'>{props.children}</main>
     </div>
   );
 };
