@@ -4,11 +4,12 @@ This Crud Todo App was made to practice React and <a href="https://reactrouter.c
 
 Backend and deployment was done with <a href="https://firebase.google.com/"> Firebase </a>
 
+App made in ~6 hours.
+
 ### Preview
 https://todo-5228a.web.app/
 
 <img src="https://user-images.githubusercontent.com/56975218/163835556-0b4a6575-5e61-4243-98a5-a5dddc06dc2f.png" alt="Preview Image" width="500px" />
-
 
 ### Sources
 - Logo from: https://icons8.com/icon/13550/todo-list
