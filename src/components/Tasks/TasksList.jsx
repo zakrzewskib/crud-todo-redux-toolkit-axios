@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { sortAscendingSvg } from '../../assets/svg/Svgs';
 import { getTasksAsync } from '../../store/tasks-slice';
+import { tasksActions } from '../../store/tasks-slice';
+import SortButton from '../UI/SortButton';
 import AddTask from './AddTask';
 
 import Task from './Task';
@@ -9,6 +10,16 @@ import Task from './Task';
 const TasksList = () => {
   const dispatch = useDispatch();
   const tasks = useSelector((state) => state.tasks.tasks);
+  const [sorted, setSorted] = useState('descending');
+
+  const handleSortTasks = () => {
+    dispatch(tasksActions.sortTasks({ sorted }));
+    if (sorted === 'descending') {
+      setSorted('ascending');
+    } else {
+      setSorted('descending');
+    }
+  };
 
   useEffect(() => {
     dispatch(getTasksAsync());
@@ -21,9 +32,7 @@ const TasksList = () => {
       </header>
       <article className='align-center mx-auto mb-6 max-w-sm sm:flex'>
         <AddTask />
-        <button className='sm:border-l-none rounded border-gray-200  bg-white p-3 shadow-md  dark:border-gray-700 dark:bg-gray-800 sm:rounded-l-none'>
-          {sortAscendingSvg}
-        </button>
+        <SortButton sorted={sorted} onClick={handleSortTasks} />
       </article>
 
       <article>

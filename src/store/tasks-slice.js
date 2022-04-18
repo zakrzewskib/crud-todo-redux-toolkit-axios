@@ -9,14 +9,17 @@ const transformDataFromFirebase = (data) => {
   if (data === null) {
     return [];
   }
-  const tasks = [];
+  let tasks = [];
   for (const entry of Object.entries(data)) {
-    tasks.push({
-      id: entry[1].id,
-      content: entry[1].content,
-      firebaseId: entry[0],
-      date: entry[1].date,
-    });
+    tasks = [
+      {
+        id: entry[1].id,
+        content: entry[1].content,
+        firebaseId: entry[0],
+        date: entry[1].date,
+      },
+      ...tasks,
+    ];
   }
   return tasks;
 };
@@ -25,6 +28,7 @@ const tasksSlice = createSlice({
   name: 'tasks',
   initialState: {
     tasks: [],
+    sorted: 'ascending',
   },
   reducers: {
     getTasks: (state, action) => {
@@ -35,6 +39,11 @@ const tasksSlice = createSlice({
     },
     addTask: (state, action) => {
       state.tasks = [action.payload.task, ...state.tasks];
+    },
+    sortTasks: (state, action) => {
+      state.tasks.sort((a, b) => {
+        return action.payload.sorted === 'descending' ? a.date - b.date : b.date - a.date;
+      });
     },
   },
 });
