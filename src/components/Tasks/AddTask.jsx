@@ -18,7 +18,7 @@ const AddTask = () => {
 
   return (
     <form
-      className='mx-auto mb-6 flex max-w-sm items-center justify-between rounded-lg border-gray-200 bg-white shadow-md  dark:border-gray-700 dark:bg-gray-800'
+      className='border-r-none mx-auto flex max-w-sm flex-grow items-center justify-between rounded-lg rounded-r-none border-gray-200 bg-white shadow-md  dark:border-gray-700 dark:bg-gray-800'
       onSubmit={addTask}
     >
       <input
@@ -32,7 +32,7 @@ const AddTask = () => {
         required
         autoFocus
       />
-      <button className='cursor-pointer p-3'>{addSvg}</button>
+      <button className='p-3'>{addSvg}</button>
     </form>
   );
 };
