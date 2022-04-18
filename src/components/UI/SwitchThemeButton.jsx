@@ -1,24 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { moonSvg, sunSvg } from '../../assets/svg/Svgs';
 
-const SwitchThemeButton = () => {
-  const [theme, setTheme] = useState('dark');
-
-  const changeTheme = () => {
-    if (theme === 'dark') {
-      setTheme('light');
-    } else {
-      setTheme('dark');
-    }
-    document.body.classList.toggle('dark');
-  };
-
+const SwitchThemeButton = (props) => {
   return (
     <button
       className='0 absolute top-0 right-0 text-base font-normal text-gray-900 dark:text-white '
-      onClick={changeTheme}
+      onClick={props.onClick}
     >
-      {theme === 'dark' ? sunSvg : moonSvg}
+      {props.theme === 'dark' ? sunSvg : moonSvg}
     </button>
   );
 };

@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { checkSvg, loadingSpinner } from '../assets/svg/Svgs';
-import Task from '../components/Tasks/Task';
 import { getTaskByIdAsync, updateTaskByIdAsync } from '../store/tasks-slice';
 
 const TaskDetailsPage = () => {
@@ -35,7 +34,6 @@ const TaskDetailsPage = () => {
         firebaseId: taskId,
       })
     );
-    // goBack();
   };
 
   return (
@@ -61,6 +59,7 @@ const TaskDetailsPage = () => {
         <button onClick={goBack} className='hover:underline'>
           Go back
         </button>
+        {/* a element is here intentionally to auto refresh tasks page and fetch tasks with updated task */}
         <a href='/tasks' onClick={handleEdit}>
           {checkSvg}
         </a>

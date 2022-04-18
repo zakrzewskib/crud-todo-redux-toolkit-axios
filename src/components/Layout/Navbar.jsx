@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+
 import { aboutSvg, listSvg } from '../../assets/svg/Svgs';
 
 import SwitchThemeButton from '../UI/SwitchThemeButton';
@@ -32,6 +33,17 @@ const Navbar = () => {
     },
   ];
 
+  const [theme, setTheme] = useState('dark');
+
+  const changeTheme = () => {
+    if (theme === 'dark') {
+      setTheme('light');
+    } else {
+      setTheme('dark');
+    }
+    document.body.classList.toggle('dark');
+  };
+
   return (
     <nav className='w-64' aria-label='Sidebar'>
       <div className='h-full overflow-y-auto bg-gray-50 py-4 px-3 dark:bg-gray-800'>
@@ -44,7 +56,7 @@ const Navbar = () => {
             <NavbarItem key={link.title} title={link.title} link={link.link} svg={link.svg} />
           ))}
         </ul>
-        <SwitchThemeButton />
+        <SwitchThemeButton onClick={changeTheme} theme={theme} />
       </div>
     </nav>
   );

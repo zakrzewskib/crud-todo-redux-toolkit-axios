@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
-
 import { useNavigate, useLocation } from 'react-router-dom';
-
 import { useSelector, useDispatch } from 'react-redux';
 
 import { getTasksAsync } from '../../store/tasks-slice';
 import { tasksActions } from '../../store/tasks-slice';
+
 import SortButton from '../UI/SortButton';
 import AddTask from './AddTask';
 
