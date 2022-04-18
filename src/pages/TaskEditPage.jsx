@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { checkSvg, loadingSpinner } from '../assets/svg/Svgs';
-import { getTaskByIdAsync, updateTaskByIdAsync } from '../store/tasks-slice';
+import { getTaskByIdAsync, updateTaskByIdAsync } from '../store/tasks-async-actions';
 
 const TaskDetailsPage = () => {
   const params = useParams();

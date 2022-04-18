@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { deleteTaskAsync } from '../../store/tasks-slice';
+import { deleteTaskAsync } from '../../store/tasks-async-actions';
 
 import { editSvg, trashSvg } from '../../assets/svg/Svgs';
 import { Link } from 'react-router-dom';
