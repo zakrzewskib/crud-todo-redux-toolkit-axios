@@ -19,9 +19,9 @@ const TasksList = () => {
       <header className='mb-8 mt-5'>
         <h1 className='text-2xl font-bold'>Tasks</h1>
       </header>
-      <article className='align-center mx-auto mb-6 flex max-w-sm'>
+      <article className='align-center mx-auto mb-6 max-w-sm sm:flex'>
         <AddTask />
-        <button className='border-l-none rounded rounded-l-none border-gray-200  bg-white p-3 shadow-md  dark:border-gray-700 dark:bg-gray-800'>
+        <button className='sm:border-l-none rounded border-gray-200  bg-white p-3 shadow-md  dark:border-gray-700 dark:bg-gray-800 sm:rounded-l-none'>
           {sortAscendingSvg}
         </button>
       </article>

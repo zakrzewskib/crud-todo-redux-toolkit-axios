@@ -18,7 +18,7 @@ const AddTask = () => {
 
   return (
     <form
-      className='border-r-none mx-auto flex max-w-sm flex-grow items-center justify-between rounded-lg rounded-r-none border-gray-200 bg-white shadow-md  dark:border-gray-700 dark:bg-gray-800'
+      className='sm:border-r-none mx-auto mb-3 flex max-w-sm flex-grow items-center justify-between rounded-lg border-gray-200 bg-white shadow-md  dark:border-gray-700 dark:bg-gray-800 sm:mb-0 sm:rounded-r-none'
       onSubmit={addTask}
     >
       <input
@@ -27,7 +27,7 @@ const AddTask = () => {
           setTaskContent(event.target.value);
         }}
         tabIndex='0'
-        className='flex-grow rounded-lg bg-white p-3 focus:border-blue-500 focus:ring-blue-500  dark:bg-gray-800 dark:focus:border-blue-500 dark:focus:ring-blue-500'
+        className='w-48 flex-grow rounded-lg bg-white p-3 focus:border-blue-500  focus:ring-blue-500 dark:bg-gray-800 dark:focus:border-blue-500 dark:focus:ring-blue-500'
         placeholder='Add new task'
         required
         autoFocus
