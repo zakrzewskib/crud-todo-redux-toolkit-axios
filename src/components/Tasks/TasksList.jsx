@@ -1,5 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
+
+import { useNavigate, useLocation } from 'react-router-dom';
+
 import { useSelector, useDispatch } from 'react-redux';
+
 import { getTasksAsync } from '../../store/tasks-slice';
 import { tasksActions } from '../../store/tasks-slice';
 import SortButton from '../UI/SortButton';
@@ -9,16 +13,24 @@ import Task from './Task';
 
 const TasksList = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+
+  const isSortingAscending = queryParams.get('sort') === 'asc';
+
   const tasks = useSelector((state) => state.tasks.tasks);
-  const [sorted, setSorted] = useState('descending');
+
+  useEffect(() => {
+    dispatch(tasksActions.sortTasks({ isSortingAscending }));
+  });
 
   const handleSortTasks = () => {
-    dispatch(tasksActions.sortTasks({ sorted }));
-    if (sorted === 'descending') {
-      setSorted('ascending');
-    } else {
-      setSorted('descending');
-    }
+    navigate({
+      pathname: location.pathname,
+      search: `?sort=${isSortingAscending ? 'desc' : 'asc'}`,
+    });
+    dispatch(tasksActions.sortTasks({ isSortingAscending }));
   };
 
   useEffect(() => {
@@ -32,7 +44,7 @@ const TasksList = () => {
       </header>
       <article className='align-center mx-auto mb-6 max-w-sm sm:flex'>
         <AddTask />
-        <SortButton sorted={sorted} onClick={handleSortTasks} />
+        <SortButton isSortingAscending={isSortingAscending} onClick={handleSortTasks} />
       </article>
 
       <article>

@@ -42,7 +42,7 @@ const tasksSlice = createSlice({
     },
     sortTasks: (state, action) => {
       state.tasks.sort((a, b) => {
-        return action.payload.sorted === 'descending' ? a.date - b.date : b.date - a.date;
+        return action.payload.isSortingAscending ? a.date - b.date : b.date - a.date;
       });
     },
   },
