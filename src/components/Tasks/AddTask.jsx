@@ -11,7 +11,11 @@ const AddTask = () => {
   const addTask = (event) => {
     event.preventDefault();
 
-    dispatch(addTaskAsync({ content: taskContent }));
+    if (taskContent.length > 20) {
+      dispatch(addTaskAsync({ content: taskContent.substring(0, 20) + '...' }));
+    } else {
+      dispatch(addTaskAsync({ content: taskContent }));
+    }
 
     setTaskContent('');
   };

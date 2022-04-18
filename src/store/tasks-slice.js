@@ -78,6 +78,27 @@ export const addTaskAsync = (data) => async (dispatch) => {
   }
 };
 
+export const getTaskByIdAsync = (data) => async (dispatch) => {
+  try {
+    const response = await axios.get(`${URL}/tasks/${data.taskId}.json`);
+    return response;
+  } catch (err) {
+    throw new Error(err);
+  }
+};
+
+export const updateTaskByIdAsync = (data) => async (dispatch) => {
+  try {
+    await axios.put(`${URL}/tasks/${data.firebaseId}.json`, {
+      id: data.id,
+      content: data.content,
+      date: data.date,
+    });
+  } catch (err) {
+    throw new Error(err);
+  }
+};
+
 export const tasksActions = tasksSlice.actions;
 
 export default tasksSlice;
