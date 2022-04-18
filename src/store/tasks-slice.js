@@ -15,6 +15,7 @@ const transformDataFromFirebase = (data) => {
       id: entry[1].id,
       content: entry[1].content,
       firebaseId: entry[0],
+      date: entry[1].date,
     });
   }
   return tasks;
@@ -33,7 +34,7 @@ const tasksSlice = createSlice({
       state.tasks = state.tasks.filter((task) => task.id !== action.payload.id);
     },
     addTask: (state, action) => {
-      state.tasks.push(action.payload.task);
+      state.tasks = [action.payload.task, ...state.tasks];
     },
   },
 });
@@ -60,7 +61,7 @@ export const deleteTaskAsync = (data) => async (dispatch) => {
 
 export const addTaskAsync = (data) => async (dispatch) => {
   try {
-    const task = { content: data.content, id: uuid() };
+    const task = { content: data.content, id: uuid(), date: Date.now() };
     await axios.post(`${URL}/tasks.json`, task);
     dispatch(tasksActions.addTask({ task }));
   } catch (err) {
